@@ -1,0 +1,155 @@
+... first 10 lines hidden ...                                                                                                         │
+ │     11 }                                                                                                                                 │
+ │     12                                                                                                                                   │
+ │     13 header {                                                                                                                          │
+ │     14     background-color: #fff;                                                                                                       │
+ │     15     padding: 15px 20px;                                                                                                           │
+ │     16     display: flex;                                                                                                                │
+ │     17     align-items: center;                                                                                                          │
+ │     18     border-bottom: 1px solid #dee2e6;                                                                                             │
+ │     19     flex-wrap: wrap;                                                                                                              │
+ │     20 }                                                                                                                                 │
+ │     21                                                                                                                                   │
+ │     22 .logo {                                                                                                                           │
+ │     23     height: 100px;                                                                                                                │
+ │     24     width: 130px;                                                                                                                 │
+ │     25     object-fit: contain;                                                                                                          │
+ │     26 }                                                                                                                                 │
+ │     27                                                                                                                                   │
+ │     28 .title-search-container {                                                                                                         │
+ │     29     display: flex;                                                                                                                │
+ │     30     flex-direction: column;                                                                                                       │
+ │     31     justify-content: center;                                                                                                      │
+ │     32     flex-grow: 1;                                                                                                                 │
+ │     33     margin-left: 20px;                                                                                                            │
+ │     34 }                                                                                                                                 │
+ │     35                                                                                                                                   │
+ │     36 .site-title {                                                                                                                     │
+ │     37     font-size: 1.8em;                                                                                                             │
+ │     38     font-weight: 600;                                                                                                             │
+ │     39     margin: 0 0 10px 0;                                                                                                           │
+ │     40     color: #005a9c;                                                                                                               │
+ │     41 }                                                                                                                                 │
+ │     42                                                                                                                                   │
+ │     43 .search-box {                                                                                                                     │
+ │     44     display: flex;                                                                                                                │
+ │     45     width: 100%;                                                                                                                  │
+ │     46 }                                                                                                                                 │
+ │     47                                                                                                                                   │
+ │     48 #searchInput {                                                                                                                    │
+ │     49     font-size: 1.1em;                                                                                                             │
+ │     50     padding: 10px 15px;                                                                                                           │
+ │     51     border: 2px solid #ccc;                                                                                                       │
+ │     52     border-radius: 5px 0 0 5px;                                                                                                   │
+ │     53     flex-grow: 1;                                                                                                                 │
+ │     54     min-width: 180px;                                                                                                             │
+ │     55 }                                                                                                                                 │
+ │     56                                                                                                                                   │
+ │     57 #searchButton {                                                                                                                   │
+ │     58     font-size: 1.1em;                                                                                                             │
+ │     59     padding: 10px 20px;                                                                                                           │
+ │     60     border: none;                                                                                                                 │
+ │     61     background-color: #007bff;                                                                                                    │
+ │     62     color: white;                                                                                                                 │
+ │     63     border-radius: 0 5px 5px 0;                                                                                                   │
+ │     64     cursor: pointer;                                                                                                              │
+ │     65     transition: background-color 0.3s ease;                                                                                       │
+ │     66     border: 2px solid #007bff;                                                                                                    │
+ │     67 }                                                                                                                                 │
+ │     68                                                                                                                                   │
+ │     69 #searchButton:hover {                                                                                                             │
+ │     70     background-color: #0056b3;                                                                                                    │
+ │     71 }                                                                                                                                 │
+ │     72                                                                                                                                   │
+ │     73 main {                                                                                                                            │
+ │     74     flex-grow: 1;                                                                                                                 │
+ │     75     padding: 20px;                                                                                                                │
+ │     76 }                                                                                                                                 │
+ │     77                                                                                                                                   │
+ │     78 #resultsContainer {                                                                                                               │
+ │     79     overflow-x: auto; /* 모바일에서 테이블 가로 스크롤 */                                                                         │
+ │     80 }                                                                                                                                 │
+ │     81                                                                                                                                   │
+ │     82 .results-table {                                                                                                                  │
+ │     83     width: 100%;                                                                                                                  │
+ │     84     border-collapse: collapse;                                                                                                    │
+ │     85     background-color: #fff;                                                                                                       │
+ │     86     box-shadow: 0 2px 8px rgba(0,0,0,0.1);                                                                                        │
+ │     87 }                                                                                                                                 │
+ │     88                                                                                                                                   │
+ │     89 .results-table th, .results-table td {                                                                                            │
+ │     90     padding: 12px 15px;                                                                                                           │
+ │     91     border: 1px solid #ddd;                                                                                                       │
+ │     92     text-align: left;                                                                                                             │
+ │     93 }                                                                                                                                 │
+ │     94                                                                                                                                   │
+ │     95 .results-table th {                                                                                                               │
+ │     96     background-color: #f2f2f2;                                                                                                    │
+ │     97     font-weight: 600;                                                                                                             │
+ │     98 }                                                                                                                                 │
+ │     99                                                                                                                                   │
+ │    100 .results-table tr:nth-child(even) {                                                                                               │
+ │    101     background-color: #f9f9f9;                                                                                                    │
+ │    102 }                                                                                                                                 │
+ │    103                                                                                                                                   │
+ │    104 .results-table tr:hover {                                                                                                         │
+ │    105     background-color: #f1f1f1;                                                                                                    │
+ │    106 }                                                                                                                                 │
+ │    107                                                                                                                                   │
+ │    108 #initialMessage, .no-results {                                                                                                    │
+ │    109     font-size: 1.2em;                                                                                                             │
+ │    110     color: #777;                                                                                                                  │
+ │    111     text-align: center;                                                                                                           │
+ │    112     width: 100%;                                                                                                                  │
+ │    113     padding: 40px 0;                                                                                                              │
+ │    114 }                                                                                                                                 │
+ │    115                                                                                                                                   │
+ │    116 #loadingIndicator {                                                                                                               │
+ │    117     display: none;                                                                                                                │
+ │    118     text-align: center;                                                                                                           │
+ │    119     padding: 40px 0;                                                                                                              │
+ │    120     font-size: 1.2em;                                                                                                             │
+ │    121     color: #777;                                                                                                                  │
+ │    122 }                                                                                                                                 │
+ │    123                                                                                                                                   │
+ │    124 .spinner {                                                                                                                        │
+ │    125     margin: 0 auto 10px auto;                                                                                                     │
+ │    126     border: 4px solid #f3f3f3;                                                                                                    │
+ │    127     border-top: 4px solid #007bff;                                                                                                │
+ │    128     border-radius: 50%;                                                                                                           │
+ │    129     width: 40px;                                                                                                                  │
+ │    130     height: 40px;                                                                                                                 │
+ │    131     animation: spin 1s linear infinite;                                                                                           │
+ │    132 }                                                                                                                                 │
+ │    133                                                                                                                                   │
+ │    134 @keyframes spin {                                                                                                                 │
+ │    135     0% { transform: rotate(0deg); }                                                                                               │
+ │    136     100% { transform: rotate(360deg); }                                                                                           │
+ │    137 }                                                                                                                                 │
+ │    138                                                                                                                                   │
+ │    139 /* 모바일 화면을 위한 미디어 쿼리 */                                                                                              │
+ │    140 @media (max-width: 768px) {                                                                                                       │
+ │    141     header {                                                                                                                      │
+ │    142         flex-direction: column;                                                                                                   │
+ │    143         align-items: flex-start;                                                                                                  │
+ │    144     }                                                                                                                             │
+ │    145     .title-search-container {                                                                                                     │
+ │    146         margin-left: 0;                                                                                                           │
+ │    147         margin-top: 15px;                                                                                                         │
+ │    148         width: 100%;                                                                                                              │
+ │    149     }                                                                                                                             │
+ │    150     .site-title {                                                                                                                 │
+ │    151         font-size: 1.5em;                                                                                                         │
+ │    152     }                                                                                                                             │
+ │    153     .search-box {                                                                                                                 │
+ │    154         flex-direction: column;                                                                                                   │
+ │    155     }                                                                                                                             │
+ │    156     #searchInput, #searchButton {                                                                                                 │
+ │    157         width: 100%;                                                                                                              │
+ │    158         box-sizing: border-box;                                                                                                   │
+ │    159         border-radius: 5px;                                                                                                       │
+ │    160     }                                                                                                                             │
+ │    161     #searchInput {                                                                                                                │
+ │    162         margin-bottom: 10px;                                                                                                      │
+ │    163     }                                                                                                                             │
+ │    164 }                                     

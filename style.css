@@ -3,99 +3,111 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Malgun Gothic', sans-serif;
+    font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
 }
 
 body {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     color: #333;
     padding: 20px;
+    line-height: 1.6;
 }
 
-/* 헤더 및 로고 */
+/* 로고 설정 */
 header {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .logo-img {
     width: 130px;
     height: 100px;
     cursor: pointer;
-    object-fit: contain;
+    display: block; /* 줄바꿈을 위해 block 설정 */
 }
 
-/* 제목 및 검색창 */
+/* 텍스트 및 검색창 배치 */
 .main-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: left;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.search-container {
+.search-box {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
+    gap: 12px;
+    max-width: 600px;
 }
 
 input[type="text"] {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 1rem;
+    outline: none;
 }
 
 button#searchBtn {
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff; /* 파란색 바탕 */
+    color: #ffffff; /* 흰색 글자 */
     border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 button#searchBtn:hover {
     background-color: #0056b3;
 }
 
-/* 결과 테이블 */
-#result-area {
-    margin-top: 30px;
+/* 결과 테이블 스타일 */
+#result-section {
+    margin-top: 40px;
 }
 
-.table-wrapper {
-    overflow-x: auto; /* 모바일에서 표 가로 스크롤 가능하게 함 */
-    background: white;
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* 모바일 가로 스크롤 보장 */
+    border: 1px solid #eee;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px; /* 테이블 최소 너비 보장 */
+    min-width: 800px; /* 테이블 형태 유지를 위한 최소 너비 */
 }
 
+/* ⭐ 모든 칸 중앙 정렬 수정 */
 th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-    font-size: 0.9rem;
+    padding: 12px 8px;
+    border: 1px solid #eee;
+    text-align: center; /* 중앙 정렬 */
+    font-size: 0.95rem;
+    vertical-align: middle;
 }
 
 th {
-    background-color: #f1f3f5;
+    background-color: #f8f9fa;
     font-weight: bold;
+    color: #444;
 }
 
-/* 모바일 대응 */
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* 모바일 화면 조정 */
 @media (max-width: 600px) {
     body {
         padding: 15px;
     }
     .main-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 }

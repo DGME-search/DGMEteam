@@ -1,68 +1,50 @@
-// 1. 설정 정보 (여기에만 값을 넣으세요)
+// 1. 정보를 변수에 담습니다. (문자열이므로 반드시 ' ' 따옴표로 감싸야 합니다)
 const SPREADSHEET_ID = '1_tiF71t5Fw_8kMN2lRwkeh79yAhmXW_iArezdelO5LI';
 const API_KEY = 'AIzaSyAaja3hDnEOYASt6x7Uz2M-PY3m1N-RahQ';
-const SHEET_NAME = '대구ME발표팀'; // 시트 탭 이름 반영
-const RANGE = `${SHEET_NAME}!B:G`;
+const SHEET_NAME = '대구ME발표팀'; 
+const RANGE = `${SHEET_NAME}!B:G`; 
 
-/**
- * 검색 실행 함수
- */
 async function searchData() {
-    const searchInput = document.getElementById('searchInput');
-    const searchTerm = searchInput.value.trim();
-    
+    const searchTerm = document.getElementById('searchInput').value.trim();
     if (!searchTerm) {
         alert('이름 또는 세례명을 입력하세요.');
         return;
     }
 
-    // 2. URL 생성 (변수 이름을 사용하여 안전하게 호출)
-    const encodedRange = encodeURIComponent(RANGE);
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${encodedRange}?key=${API_KEY}`;
+    // 2. URL 생성 시 변수 이름만 넣습니다. (값 자체를 직접 넣지 마세요)
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${encodeURIComponent(RANGE)}?key=${API_KEY}`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
 
         if (response.ok) {
-            processResults(data.values, searchTerm);
+            displayResults(data.values, searchTerm);
         } else {
-            console.error('Google API Error:', data.error);
-            alert(`데이터 로드 실패: ${data.error.message}\n구글 시트의 [공유] 설정이 '링크가 있는 모든 사용자'인지 확인하세요.`);
+            console.error('API Error:', data.error);
+            alert("데이터를 가져오지 못했습니다. 시트 공유 설정과 시트 이름을 확인하세요.");
         }
     } catch (error) {
-        console.error('Network Error:', error);
-        alert('네트워크 오류가 발생했습니다. 인터넷 연결을 확인해주세요.');
+        alert("네트워크 오류가 발생했습니다.");
     }
 }
 
-/**
- * 결과를 표에 출력하는 함수
- */
-function processResults(rows, term) {
+function displayResults(rows, term) {
     const tbody = document.getElementById('resultBody');
-    const resultSection = document.getElementById('result-section');
+    tbody.innerHTML = '';
     
-    tbody.innerHTML = ''; 
-
-    if (!rows || rows.length === 0) {
-        alert('조회할 데이터가 시트에 없습니다.');
-        return;
-    }
+    if (!rows) return;
 
     // 검색어 필터링
-    const filteredRows = rows.filter(row => {
-        return row.some(cell => cell.toString().includes(term));
-    });
+    const filtered = rows.filter(row => row.some(cell => cell.toString().includes(term)));
 
-    if (filteredRows.length === 0) {
+    if (filtered.length === 0) {
         alert('검색 결과가 없습니다.');
-        resultSection.style.display = 'none';
         return;
     }
 
-    // 순번(No.)을 포함하여 결과 생성
-    filteredRows.forEach((row, index) => {
+    // 결과 출력 (순번 추가)
+    filtered.forEach((row, index) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${index + 1}</td>
@@ -76,5 +58,5 @@ function processResults(rows, term) {
         tbody.appendChild(tr);
     });
 
-    resultSection.style.display = 'block';
+    document.getElementById('result-section').style.display = 'block';
 }

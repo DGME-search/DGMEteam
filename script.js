@@ -1,6 +1,6 @@
 const SPREADSHEET_ID = '1_tiF71t5Fw_8kMN2lRwkeh79yAhmXW_iArezdelO5LI';
 const API_KEY = 'AIzaSyAaja3hDnEOYASt6x7Uz2M-PY3m1N-RahQ';
-const RANGE = 'Sheet1!A:G'; // 시트 이름이 다를 경우 '시트이름!A:G'로 수정하세요.
+const RANGE = '대구ME발표팀!A:G'; // 시트 이름이 다를 경우 '시트이름!A:G'로 수정하세요.
 
 // 로고 클릭 시 초기 화면으로 복구
 document.getElementById('logo').addEventListener('click', () => {
@@ -70,4 +70,5 @@ function displayResults(rows, term) {
     });
 
     document.getElementById('result-area').style.display = 'block';
+
 }

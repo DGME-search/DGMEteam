@@ -17,7 +17,7 @@ async function searchData() {
     }
 
     // API 호출 URL (인코딩 포함)
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${1_tiF71t5Fw_8kMN2lRwkeh79yAhmXW_iArezdelO5LI}/values/${encodeURIComponent(대구ME발표팀)}?key=${AIzaSyAaja3hDnEOYASt6x7Uz2M-PY3m1N-RahQ}`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${1_tiF71t5Fw_8kMN2lRwkeh79yAhmXW_iArezdelO5LI}/values/${encodeURIComponent('대구ME발표팀')}?key=${AIzaSyAaja3hDnEOYASt6x7Uz2M-PY3m1N-RahQ}`;
 
     try {
         const response = await fetch(url);
@@ -68,3 +68,4 @@ function processResults(rows, term) {
     // 결과 화면 표시
     resultSection.style.display = 'block';
 }
+

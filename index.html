@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>대구ME 발표팀 검색</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <img src="logo.png" alt="대구ME 로고" id="logo" class="logo-img">
-        </div>
+        <img src="logo.png" alt="대구ME 로고" id="logo" class="logo-img" onclick="location.reload()">
     </header>
 
-    <main id="search-area">
+    <main id="search-section">
         <h1 class="main-title">대구ME 발표팀 검색</h1>
-        <div class="search-container">
+        <div class="search-box">
             <input type="text" id="searchInput" placeholder="이름 또는 세례명을 입력하세요.." onkeypress="if(event.keyCode==13) searchData()">
             <button id="searchBtn" onclick="searchData()">검색</button>
         </div>
     </main>
 
-    <section id="result-area" style="display: none;">
-        <div class="table-wrapper">
-            <table id="resultTable">
+    <section id="result-section" style="display: none;">
+        <div class="table-container">
+            <table>
                 <thead>
                     <tr>
+                        <th>No.</th>
                         <th>주말 차수</th>
                         <th>주말 날짜</th>
                         <th>발표 사제</th>

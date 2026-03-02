@@ -1,5 +1,5 @@
-const API_KEY = 'YOUR_API_KEY';
-const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
+const API_KEY = 'AIzaSyAaja3hDnEOYASt6x7Uz2M-PY3m1N-RahQ';
+const SPREADSHEET_ID = '1_tiF71t5Fw_8kMN2lRwkeh79yAhmXW_iArezdelO5LI';
 const RANGE = 'Sheet1!B:G'; // 시트 범위
 
 document.getElementById('logo').onclick = () => {
@@ -40,3 +40,4 @@ function displayResults(results) {
 
     document.getElementById('resultsContainer').style.display = 'block';
 }
+

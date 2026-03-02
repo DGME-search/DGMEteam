@@ -21,11 +21,20 @@ input[type="text"] {
     padding: 5px;
     font-size: 16px;
     width: 200%; /* 길이를 2배로 늘림 */
+    margin-bottom: 10px; /* 검색 버튼과의 간격 */
 }
 
 button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     font-size: 16px;
+    background-color: blue; /* 파란색 배경 */
+    color: white; /* 흰색 텍스트 */
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue; /* 호버 시 어두운 파란색 */
 }
 
 table {

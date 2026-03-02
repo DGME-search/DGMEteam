@@ -1,49 +1,42 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const API_KEY = 'YOUR_API_KEY';
+const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
+const RANGE = 'Sheet1!B:G'; // 시트 범위
+
+document.getElementById('logo').onclick = () => {
+    document.getElementById('resultsContainer').style.display = 'none';
+    document.getElementById('searchInput').value = '';
+};
+
+document.getElementById('searchButton').onclick = () => {
+    const searchTerm = document.getElementById('searchInput').value;
+    searchInSheet(searchTerm);
+};
+
+function searchInSheet(searchTerm) {
+    axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`)
+        .then(response => {
+            const rows = response.data.values;
+            const results = rows.filter(row => row.includes(searchTerm));
+            displayResults(results);
+        })
+        .catch(error => {
+            console.error('Error fetching data from Google Sheets', error);
+        });
 }
 
-header {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-}
+function displayResults(results) {
+    const resultsBody = document.getElementById('resultsBody');
+    resultsBody.innerHTML = '';
 
-h1 {
-    margin: 0 10px;
-}
+    results.forEach(row => {
+        const tr = document.createElement('tr');
+        row.forEach(cell => {
+            const td = document.createElement('td');
+            td.textContent = cell;
+            tr.appendChild(td);
+        });
+        resultsBody.appendChild(tr);
+    });
 
-input[type="text"] {
-    padding: 5px;
-    font-size: 16px;
-}
-
-button {
-    padding: 5px 10px;
-    font-size: 16px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-    }
-
-    input[type="text"] {
-        width: 100%;
-        margin-top: 10px;
-    }
+    document.getElementById('resultsContainer').style.display = 'block';
 }

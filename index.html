@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대구ME 발표팀 검색</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="logo.png" alt="대구ME 로고" id="logo" class="logo-img">
+        </div>
+    </header>
+
+    <main id="search-area">
+        <h1 class="main-title">대구ME 발표팀 검색</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="이름 또는 세례명을 입력하세요.." onkeypress="if(event.keyCode==13) searchData()">
+            <button id="searchBtn" onclick="searchData()">검색</button>
+        </div>
+    </main>
+
+    <section id="result-area" style="display: none;">
+        <div class="table-wrapper">
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>주말 차수</th>
+                        <th>주말 날짜</th>
+                        <th>발표 사제</th>
+                        <th>성사 부부</th>
+                        <th>사회 부부</th>
+                        <th>자신 부부</th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

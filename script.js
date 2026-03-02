@@ -13,7 +13,7 @@ document.getElementById('searchButton').onclick = () => {
 };
 
 function searchInSheet(searchTerm) {
-    axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`)
+    axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${1_tiF71t5Fw_8kMN2lRwkeh79yAhmXW_iArezdelO5LI}/values/${RANGE}?key=${AIzaSyAaja3hDnEOYASt6x7Uz2M-PY3m1N-RahQ}`)
         .then(response => {
             const rows = response.data.values;
             const results = rows.filter(row => row.includes(searchTerm));
@@ -40,4 +40,5 @@ function displayResults(results) {
 
     document.getElementById('resultsContainer').style.display = 'block';
 }
+
 
